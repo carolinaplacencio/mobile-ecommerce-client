@@ -19,56 +19,55 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 
-const Header = () => {
+const Header = ({title}) => {
   return (
-    <AppBar position="static" style={{ background: '#59b7ff' }}>
+    <AppBar position="static" style={{ background: '#29a2ff' }}>
       <Container maxWidth="xl">
         <Toolbar  >
-          <AppShortcutIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'black' }} />
+          <AppShortcutIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: '#58ff8f' }} />
           <Typography
             variant="h6"
             noWrap
-            //component="a"
             href="/"
             component="a"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex'},
+              display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'black',
               textDecoration: 'none',
-              flexGrow: 1              
+              flexGrow: 1
             }}
           >
-            Mobile Ecommerce
+           {title}
           </Typography>
-          <AppShortcutIcon sx={{ display: { xs: 'none', md: 'none' }, mr: 1, color: 'black' }} />
+          <AppShortcutIcon sx={{ display: { xs: 'none', md: 'none' }, mr: 1, color: '#58ff8f' }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'black',
               textDecoration: 'none',
-              justifyContent: "space-between", 
+              justifyContent: "space-between",
             }}
           >
-            Mobile Ecommerce
+            {title}
           </Typography>
-<Box>
-            <StyledBadge badgeContent={4} color="warning" sx={{color:'black'}} >
+          <Box>
+            <StyledBadge badgeContent={4} color="warning" sx={{ color: 'black' }} >
               <ShoppingCartIcon />
             </StyledBadge>
-            </Box>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
