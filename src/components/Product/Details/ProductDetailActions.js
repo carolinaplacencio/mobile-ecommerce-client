@@ -7,12 +7,15 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { FaCartPlus } from "react-icons/fa";
 import * as API from "../../../services/api";
+import { useState, useEffect } from "react";
+
+
 
 const ProductDetailActions = (product) => {
     const subHeadTitle = 'Actions';
-    const [selectStorage, setSelectStorage] = React.useState('1');
-    const [selectColor, setSelectColor] = React.useState('1');
-    const [cart, setCart] = React.useState('');
+    const [selectStorage, setSelectStorage] = useState('');
+    const [selectColor, setSelectColor] = useState('');
+    const [cart, setCart] = useState('');
 
     const handleChangeStorage = (event) => {
         setSelectStorage(event.target.value);
@@ -20,11 +23,23 @@ const ProductDetailActions = (product) => {
     const handleChangeColor = (event) => {
         setSelectColor(event.target.value);
     };
-
-    const submit = (e) =>{
+    const submit = (e) => {
         e.preventDefault();
         API.addItemCart().then(setCart).catch(console.log);
     }
+
+    useEffect(() => {
+        if (product.storages !== undefined) {
+            setSelectStorage(product.storages[0].id)
+        }
+    }, [product.storages]);
+
+    useEffect(() => {
+        if (product.colors !== undefined) {
+            setSelectColor(product.colors[0].id)
+        }
+    }, [product.colors]);
+
     if (product.storages && product.colors) {
         const { storages, colors } = product
         return (

@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const API_URL = "http://localhost:8080/api";
+const API_URL = "https://front-test-api-ecommerce.herokuapp.com/api";
 
 export async function getAllProducts() {
   try {
